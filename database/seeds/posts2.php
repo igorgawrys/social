@@ -11,11 +11,11 @@ class posts2 extends Seeder
      */
     public function run()
     {
-      for ($x = 0; $x <= 500; $x++) {
+      for ($x = 0; $x <= 1000; $x++) {
         $faker = Faker\Factory::create('pl_PL');
         $posts = new posts();
         $posts->content = $faker->text;
-        $posts->ower_id = rand(0,100);
+        $posts->ower_id = rand(0,103);
         $posts->save();
   }
     }

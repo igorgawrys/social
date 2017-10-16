@@ -11,12 +11,12 @@ class comments2 extends Seeder
      */
     public function run()
     {
-      for ($x = 0; $x <= 2000; $x++) {
+      for ($x = 0; $x <= 10000; $x++) {
         $faker = Faker\Factory::create('pl_PL');
         $comments = new comments();
         $comments->content = $faker->text;
-        $comments->post_id = rand(0,500);
-        $comments->ower_id = rand(0,100);
+        $comments->post_id = rand(0,1000);
+        $comments->ower_id = rand(0,103);
         $comments->save();
   }
     }

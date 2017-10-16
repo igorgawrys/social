@@ -14,8 +14,8 @@ class friends2 extends Seeder
       for ($x = 0; $x <= 100; $x++) {
         $faker = Faker\Factory::create('pl_PL');
         $friends = new friends();
-        $friends->one_friends_id = rand(0,100);
-        $friends->two_friends_id = rand(0,100);
+        $friends->one_friends_id = rand(0,103);
+        $friends->two_friends_id = rand(0,103);
           $friends->status = 'success';
         $friends->save();
   }
