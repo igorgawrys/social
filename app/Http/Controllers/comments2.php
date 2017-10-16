@@ -69,14 +69,18 @@ $this->middleware('auth',['except' => 'show']);
      */
     public function edit($id)
     {
-      if(comments::where('id',$id)->where('ower_id',Auth::user()->id)->count()==0)
+      if(Auth::user()->role==1)
       {
-         return view('notpermision');
       }
       else {
-        $comment = comments::where('id',$id)->where('ower_id',Auth::user()->id)->get();
-        return view('comments.edit',compact('comment'));
+        if(comments::where('id',$id)->where('ower_id',Auth::user()->id)->count()==0)
+        {
+           return view('notpermision');
+           exit();
+        }
       }
+        $comment = comments::where('id',$id)->get();
+        return view('comments.edit',compact('comment'));
     }
 
     /**
@@ -88,16 +92,20 @@ $this->middleware('auth',['except' => 'show']);
      */
     public function update(Prequest $request, $id)
     {
+      if(Auth::user()->role==1)
+      {
+      }
+      else {
       if(DB::table('comments')->where('id',$id)->where('ower_id',Auth::user()->id)->count()==0)
       {
     return view('notpermision');
+    exit();
       }
-      else {
+    }
         $content2 = $request->input('content2');
             $date = date("Y-m-d H:i:s");
         DB::table('comments')->where('id',$id)->update(['content' => $content2,'updated_at' => $date]);
-            return redirect()->route('social_start.index');
-      }
+            return redirect()->back();
     }
 
     /**
@@ -108,6 +116,17 @@ $this->middleware('auth',['except' => 'show']);
      */
     public function destroy($id)
     {
-        //
+      if(Auth::user()->role==1)
+      {
+      }
+      else {
+      if(DB::table('comments')->where('id',$id)->where('ower_id',Auth::user()->id)->count()==0)
+      {
+    return view('notpermision');
+    exit();
+      }
+    }
+      DB::delete('delete from comments where id='.$id);
+        return redirect()->back();
     }
 }

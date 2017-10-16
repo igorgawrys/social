@@ -20,3 +20,4 @@ Route::resource('profiles','profiles');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('search', 'search@index')->name('search');
 Route::get('wall','wall@index')->name('wall');
+Route::resource('posts','posts2');

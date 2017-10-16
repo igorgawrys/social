@@ -19,6 +19,17 @@
 {{ method_field('DELETE') }}
 </form>
 </ul></div>
+@elseif(Auth::user()->role==1)
+<div class="dropdown pull-right"><div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></div>
+<ul aria-labelledby="dLabel" class="dropdown-menu">
+<li><a href="{{route('comments.edit',$comment->id)}}">Edytuj</a></li>
+<li><a href="{{route('comments.destroy',$comment->id)}}"   onclick="event.preventDefault();document.getElementById('destroy-form{{$comment->id}}').submit();">Skasuj</a></li>
+<li><a href="#">Zapisz link</a></li>
+<form id="destroy-form{{$comment->id}}" action="{{route('comments.destroy',$comment->id)}}" method="POST" style="display: none;">
+{{ csrf_field() }}
+{{ method_field('DELETE') }}
+</form>
+</ul></div>
 @else
 <div class="dropdown pull-right"><div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></div>
 <ul aria-labelledby="dLabel" class="dropdown-menu">

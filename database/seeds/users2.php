@@ -37,6 +37,7 @@ class users2 extends Seeder
       $user->password  = bcrypt('igor2006');
       $user->sex = 1;
       $user->images = 'img/men/igor.jpg';
+      $user->role = 1;
       $user->save();
     }
 }

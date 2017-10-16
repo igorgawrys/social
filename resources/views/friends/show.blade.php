@@ -34,7 +34,7 @@
      <div class="col-md-6">
        <center>
 <div class="panel panel-default panel-body">
-  <img src="{{asset(DB::table('users')->where('id',$friend->two_friends_id)->value('images'))}}" alt="">
+  <img src="{{asset(DB::table('users')->where('id',$friend->two_friends_id)->value('images'))}}" alt="" width="160" height="160">
    <a href="{{route('profiles.show',$friend->two_friends_id)}}"><h4>{{DB::table('users')->where('id',$friend->two_friends_id)->value('name')}}</h4></a>
 </div>
 </center>
@@ -44,7 +44,7 @@
 <div class="col-md-6">
   <div class="panel panel-default panel-body">
   <center>
-    <img src="{{asset(DB::table('users')->where('id',$friend->one_friends_id)->value('images'))}}" alt="">
+    <img src="{{asset(DB::table('users')->where('id',$friend->one_friends_id)->value('images'))}}" alt="" width="160" height="160">
     <a href="{{route('profiles.show',$friend->one_friends_id)}}"><h4>{{DB::table('users')->where('id',$friend->one_friends_id)->value('name')}}</h4></a>
   </center>
   </div>
