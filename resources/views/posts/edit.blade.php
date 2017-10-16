@@ -15,7 +15,7 @@
                        @endforeach
                @endif
                @foreach($post as $post)
-<form class="{{ $errors->has('content') ? ' has-error' : '' }}" action="{{route('social_start.update',$post->id)}}" method="post">
+<form class="{{ $errors->has('content') ? ' has-error' : '' }}" action="{{route('posts.update',$post->id)}}" method="post">
  {{ csrf_field() }}
  {{ method_field('PUT') }}
 <textarea name="content" rows="8" cols="80" class='form-control' placeholder="Co u ciebie słychać?">{{$post->content}}</textarea>

@@ -15,7 +15,7 @@
           <li><a href="{{route('social_start.edit',$post->id)}}">Edytuj</a></li>
           <li><a href="{{ route('social_start.destroy',$post->id) }}"   onclick="event.preventDefault();document.getElementById('destroy-form{{$post->id}}').submit();">Skasuj</a></li>
 
-          <form id="destroy-form{{$post->id}}" action="{{ route('social_start.destroy',$post->id) }}" method="POST" style="display: none;">
+          <form id="destroy-form{{$post->id}}" action="{{ route('posts.destroy',$post->id) }}" method="POST" style="display: none;">
               {{ csrf_field() }}
               {{ method_field('DELETE') }}
           </form>
@@ -23,8 +23,8 @@
             @elseif(Auth::user()->role==1)
             <div class="dropdown pull-right"><div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></div>
             <ul aria-labelledby="dLabel" class="dropdown-menu">
-          <li><a href="{{route('social_start.edit',$post->id)}}">Edytuj</a></li>
-          <li><a href="{{ route('social_start.destroy',$post->id) }}"   onclick="event.preventDefault();document.getElementById('destroy-form{{$post->id}}').submit();">Skasuj</a></li>
+          <li><a href="{{route('posts.edit',$post->id)}}">Edytuj</a></li>
+          <li><a href="{{ route('posts.destroy',$post->id) }}"   onclick="event.preventDefault();document.getElementById('destroy-form{{$post->id}}').submit();">Skasuj</a></li>
           <li><a href="#">Zapisz link</a></li>
           <form id="destroy-form{{$post->id}}" action="{{ route('social_start.destroy',$post->id) }}" method="POST" style="display: none;">
               {{ csrf_field() }}
@@ -34,8 +34,8 @@
             @elseif(Auth::user()->role==1)
             <div class="dropdown pull-right"><div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></div>
             <ul aria-labelledby="dLabel" class="dropdown-menu">
-          <li><a href="{{route('social_start.edit',$post->id)}}">Edytuj</a></li>
-          <li><a href="{{ route('social_start.destroy',$post->id) }}"   onclick="event.preventDefault();document.getElementById('destroy-form{{$post->id}}').submit();">Skasuj</a></li>
+          <li><a href="{{route('posts.edit',$post->id)}}">Edytuj</a></li>
+          <li><a href="{{ route('posts.destroy',$post->id) }}"   onclick="event.preventDefault();document.getElementById('destroy-form{{$post->id}}').submit();">Skasuj</a></li>
           <li><a href="#">Zapisz link</a></li>
           <form id="destroy-form{{$post->id}}" action="{{ route('social_start.destroy',$post->id) }}" method="POST" style="display: none;">
               {{ csrf_field() }}

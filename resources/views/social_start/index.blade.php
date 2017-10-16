@@ -12,7 +12,7 @@
                         {{$errors->first('content') }}
                                   </div>
              @endif
-<form class="{{ $errors->has('content') ? ' has-error' : '' }}" action="{{route('social_start.store')}}" method="post">
+<form class="{{ $errors->has('content') ? ' has-error' : '' }}" action="{{route('posts.store')}}" method="post">
  {{ csrf_field() }}
 <textarea name="content" rows="8" cols="80" class='form-control' placeholder="Co u ciebie słychać?"></textarea>
 <br/>
