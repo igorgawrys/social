@@ -21,7 +21,7 @@
           </div>
             </div>
             @if($friendc==0)
-                        @foreach(DB::table('posts')->where('ower_id',Auth::user()->id)->get() as $post)
+                        @foreach(DB::table('posts')->where('ower_id',Auth::user()->id)->orderby('id','desc')->get() as $post)
                         <div class="panel panel-default">
             <div class="panel-body">
               @if(Auth::user())
